@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Shorter URL</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Acortador de URL</h1>
+      <% if (typeof error !== 'undefined') { %>
+      <div class="error"><%= error %></div>
+      <% } %> <% if (typeof shortUrl !== 'undefined') { %>
+      <div class="success">
+        URL acortada:
+        <a href="http://<%= shortUrl %>" target="_blank"
+          >http://<%= shortUrl %></a
+        >
+      </div>
+      <% } %>
+      <form action="/shorten" method="POST">
+        <input
+          type="url"
+          name="originalUrl"
+          placeholder="Ingresa la URL completa (http:// o https://)"
+          required
+        />
+        <button type="submit">Acortar URL</button>
+      </form>
+    </div>
+  </body>
+</html>
